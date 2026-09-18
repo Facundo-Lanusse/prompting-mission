@@ -116,6 +116,7 @@ src/
   conversation_logger.py # logs .md por conversación
   chat_cli.py            # interfaz de chat interactiva (Ejercicio 1)
   prompt_vida.py         # especificación (prompt) para generar vida.py
+  run_ejercicio1_demo.py # genera los logs de prueba de los 4 modelos (Ejercicio 1)
   run_ejercicio2.py       # corre el Ejercicio 2 de forma scripteada/auditable
 tests/
   test_vida.py           # test de la cátedra (sin modificar)
