@@ -1,8 +1,8 @@
-"""Especificacion (prompt) para generar vida.py — Ejercicio 2.
+"""Especificacion (prompt) para generar vida.py.
 
 `CONTEXTO_ESTATICO` tiene que quedar IDENTICO entre todos los intentos (el
-ganador y los quemados): es lo que permite que DeepSeek cachee el prefijo
-entre corridas. Lo unico que cambia entre intentos es `pedido_final()`.
+ganador y los descartados): es lo que permite que DeepSeek cachee el
+prefijo entre corridas. Lo unico que cambia es `pedido_final()`.
 """
 from __future__ import annotations
 
@@ -151,8 +151,8 @@ wrap):
 
 def pedido_final(intento: int) -> str:
     """La parte VARIABLE del prompt (va al final, despues del contexto
-    estatico). Cambia de texto entre intentos quemados (nunca el codigo a
-    mano), pero el contrato que transmite es siempre el mismo.
+    estatico). Cambia de texto entre intentos descartados (nunca se corrige el
+    codigo a mano), pero el contrato que transmite es siempre el mismo.
     """
     if intento == 1:
         return (
@@ -166,7 +166,7 @@ def pedido_final(intento: int) -> str:
     return (
         "# Input\n\n"
         f"(Intento {intento} — prompt reescrito desde cero tras un intento "
-        "quemado, el contrato de arriba no cambió)\n\n"
+        "descartado, el contrato de arriba no cambió)\n\n"
         "Generá el archivo `vida.py` completo desde cero, listo para "
         "ejecutar, que cumpla exactamente la especificación de arriba. "
         "Prestá atención especial a: aplicar las reglas de forma "

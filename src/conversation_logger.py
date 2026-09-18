@@ -2,8 +2,8 @@
 
 Cada conversacion (= una sesion con un modelo, hasta que se cambia de modelo
 o se cierra) queda en su propio archivo .md, con rol, mensaje y usage por
-respuesta. Es la evidencia de auditoria que pide mission.md: "una corrida
-sin log no se puede auditar y no cuenta".
+respuesta. Es la evidencia de auditoria de la entrega: una corrida sin log
+no se puede verificar.
 """
 from __future__ import annotations
 

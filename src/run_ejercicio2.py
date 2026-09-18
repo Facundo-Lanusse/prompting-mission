@@ -1,8 +1,8 @@
-"""Ejercicio 2, scripteado y auditable: genera vida.py via el slot 4.
+"""Generacion scripteada y auditable de vida.py via el slot 4.
 
-Reglas de mission.md que este script respeta:
+Reglas que este script respeta:
   - Correcto en 1 prompt, a lo sumo 2 (el 2do solo para pulir).
-  - Si se pasa de 2, la corrida queda "quemada": conversacion nueva, prompt
+  - Si se pasa de 2, la corrida se descarta: conversacion nueva, prompt
     reescrito desde cero (nunca se parchea el codigo a mano).
   - El contexto estatico (CONTEXTO_ESTATICO) es identico en todos los
     intentos, para que el caching de DeepSeek funcione entre corridas.
@@ -113,7 +113,7 @@ def main() -> None:
                   f"vida.py escrito en {VIDA_PY}. Log: {conv.logger.path}")
             return
 
-        print(f"\n🔥 Intento {intento} QUEMADO ({n_prompts} prompts, tests en rojo). "
+        print(f"\n🔥 Intento {intento} DESCARTADO ({n_prompts} prompts, tests en rojo). "
               f"Log conservado: {conv.logger.path}")
 
     print("\n❌ Se agotaron los intentos sin pasar los 9 tests. Revisar logs en logs/ejercicio2/.")

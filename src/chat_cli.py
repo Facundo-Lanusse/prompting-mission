@@ -1,4 +1,4 @@
-"""Interfaz de chat CLI sobre OpenRouter — Ejercicio 1 de la mision.
+"""Interfaz de chat CLI multi-modelo sobre OpenRouter.
 
 Sirve los 4 modelos de `models.py`, muestra el usage despues de cada
 respuesta y guarda un log .md por conversacion. Cambiar de modelo cierra

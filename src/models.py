@@ -1,16 +1,15 @@
-"""Registro de los 4 slots de modelos de la mision (ver mission.md, Ejercicio 1).
+"""Registro de los 4 slots de modelos de la interfaz de chat.
 
-Cada slot ejercita una capacidad distinta de la clase de prompting:
+Cada slot ejercita una capacidad distinta de la API:
 
     1. openai/gpt-5.6-luna         -> reasoning effort configurable
     2. anthropic/claude-haiku-4.5  -> prompt caching explicito (cache_control)
     3. google/gemini-3.7-flash     -> salidas estructuradas (JSON Schema)
-    4. deepseek/deepseek-v4-flash-0731 -> escalon barato + reasoning, usado en el Ejercicio 2
+    4. deepseek/deepseek-v4-flash-0731 -> escalon barato + reasoning
 
-IDs verificados al 2026-09-02 (segun mission.md). Si alguno desaparecio del
-catalogo de OpenRouter al momento de correr esto, reemplazarlo aca por el
-equivalente vigente del mismo proveedor y anotarlo en el informe (Ejercicio 3),
-tal como pide la consigna.
+IDs verificados contra el catalogo de OpenRouter al 2026-09-18. Si alguno
+deja de existir, reemplazarlo aca por el equivalente vigente del mismo
+proveedor y anotarlo en reports/informe-de-consumo.md.
 """
 from __future__ import annotations
 
@@ -50,7 +49,7 @@ class ModelSlot:
         if self.reasoning_configurable and reasoning_effort:
             body["reasoning"] = {"effort": reasoning_effort}
         elif self.model_id.startswith("deepseek/") and reasoning_effort:
-            # Slot 4: "reasoning activado" (Ejercicio 2), sin nivel configurable.
+            # Slot 4: reasoning activado, sin nivel configurable.
             body["reasoning"] = {"enabled": True}
 
         if self.structured_output:
@@ -67,7 +66,7 @@ class ModelSlot:
         if self.explicit_caching:
             # Anthropic: el bloque estatico va como content block con
             # cache_control ephemeral, para que OpenRouter lo pase al
-            # proveedor y se registre el cache hit en corridas siguientes.
+            # proveedor y se registre el cache hit en turnos siguientes.
             system_msg = {
                 "role": "system",
                 "content": [
@@ -133,7 +132,7 @@ SLOTS: dict[int, ModelSlot] = {
         slot=4,
         model_id="deepseek/deepseek-v4-flash-0731",
         provider="DeepSeek",
-        capacidad="Escalon barato + reasoning (usado en Ejercicio 2)",
+        capacidad="Escalon barato + reasoning",
     ),
 }
 

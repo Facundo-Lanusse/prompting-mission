@@ -4,7 +4,7 @@ OpenRouter expone un endpoint compatible con el formato de OpenAI:
 POST https://openrouter.ai/api/v1/chat/completions
 
 El usage (tokens de entrada/salida/razonamiento/cacheados y costo) viene
-incluido en cada respuesta sin pedir nada extra (mission.md, Ejercicio 1).
+incluido en cada respuesta sin pedir ningun parametro extra.
 """
 from __future__ import annotations
 
