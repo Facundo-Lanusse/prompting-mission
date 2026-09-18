@@ -54,6 +54,8 @@ class Conversation:
         self.logger = ConversationLogger(
             LOGS_DIR / log_subdir, slot.slot, slot.model_id, etiqueta=etiqueta
         )
+        if static_context:
+            self.logger.log_static_context(static_context)
 
     def send(self, user_text: str) -> tuple[str, Usage]:
         self.logger.log_turn("user", user_text)

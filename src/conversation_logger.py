@@ -29,6 +29,21 @@ class ConversationLogger:
         ]
         self._flush()
 
+    def log_static_context(self, texto: str) -> None:
+        """Deja constancia del contexto estatico (system prompt) que se
+        antepuso a cada request, sin repetirlo en cada turno."""
+        self._lineas.append(f"## contexto estático (system, {len(texto)} caracteres)")
+        self._lineas.append("")
+        self._lineas.append("<details><summary>ver contenido</summary>")
+        self._lineas.append("")
+        self._lineas.append("```")
+        self._lineas.append(texto)
+        self._lineas.append("```")
+        self._lineas.append("")
+        self._lineas.append("</details>")
+        self._lineas.append("")
+        self._flush()
+
     def log_turn(self, role: str, content: str, usage: Optional[Usage] = None) -> None:
         ts = datetime.now(timezone.utc).isoformat()
         self._lineas.append(f"## {role} — {ts}")
